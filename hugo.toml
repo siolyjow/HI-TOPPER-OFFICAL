@@ -10,3 +10,13 @@ theme = "PaperMod"
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowShareButtons = true
+
+[[menu.main]]
+  name = "ABOUT US"
+  url = "/about/"
+  weight = 1
+
+[[menu.main]]
+  name = "酒豪道場"
+  url = "/dojo/"
+  weight = 2
