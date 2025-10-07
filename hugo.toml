@@ -1,0 +1,12 @@
+baseURL = "https://yourdomain.pages.dev/"
+languageCode = "zh-cn"
+title = "HI-TOPPER"
+theme = "PaperMod"
+
+[params]
+  author = "HI-TOPPER"
+  description = "心と体を温めるアーティスト"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowShareButtons = true
