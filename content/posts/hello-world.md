@@ -1,6 +1,5 @@
 +++
 date = '2025-10-07T13:29:15+09:00'
-draft = true
 title = 'HI from HI-TOPPER'
 +++
 
