@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HI-TOPPER</title>
-    <link>http://localhost:1313/</link>
+    <link>https://www.hitopper.top/</link>
     <description>Recent content on HI-TOPPER</description>
     <generator>Hugo -- 0.151.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 07 Oct 2025 13:50:20 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.hitopper.top/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Us</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://www.hitopper.top/about/</link>
       <pubDate>Tue, 07 Oct 2025 13:50:20 +0900</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://www.hitopper.top/about/</guid>
       <description>&lt;p&gt;HI-TOPPERは、人生の経験を積んだ中年たちが集まる場所です。&lt;/p&gt;
 &lt;p&gt;皆、趣味や興味を育み、精神的な世界を豊かにすることに熱心です。&lt;/p&gt;
 &lt;p&gt;私たちの目標は、面白いと思ったものは何でもおすすめすることです。&lt;/p&gt;
@@ -21,22 +21,10 @@
 &lt;p&gt;メールアドレス：siolyjow@gmail.com&lt;/p&gt;</description>
     </item>
     <item>
-      <title>HI from HI-TOPPER</title>
-      <link>http://localhost:1313/posts/hello-world/</link>
-      <pubDate>Tue, 07 Oct 2025 13:29:15 +0900</pubDate>
-      <guid>http://localhost:1313/posts/hello-world/</guid>
-      <description>&lt;hr&gt;
-&lt;p&gt;こんにちは、あなたにお会いできてうれしいです。あなたも楽しい気持ちでいてくれるといいのですが、もしそうでなければ、私たちのショップできっと楽しい気分になれます。&lt;/p&gt;
-&lt;p&gt;Hi, nice to meet you! May you feel happiness now.  If not, our store will surely make you happy.&lt;/p&gt;
-&lt;p&gt;HI，见到你很高兴，希望你也很高兴。如果不是的话，我们的商店一定能让你很高兴。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;HI from HI-TOPPER&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>酒豪道場</title>
-      <link>http://localhost:1313/dojo/</link>
+      <link>https://www.hitopper.top/dojo/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/dojo/</guid>
+      <guid>https://www.hitopper.top/dojo/</guid>
       <description>&lt;p&gt;- 公式サイト：&lt;a href=&#34;https://j.hitopper.top&#34;&gt;https://j.hitopper.top&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;- メールアドレス：shugoudouchou@yahoo.com&lt;/p&gt;
 &lt;hr&gt;

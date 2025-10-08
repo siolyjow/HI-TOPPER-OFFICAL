@@ -9,7 +9,8 @@ theme = "PaperMod"
   ShowReadingTime = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
-  ShowShareButtons = true
+  ShowShareButtons = false
+  copyright = "Powered by Hugo & PaperMod & hitopper"
 
 [[menu.main]]
   name = "ABOUT US"

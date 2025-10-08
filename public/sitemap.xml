@@ -2,23 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/dojo/</loc>
-    <lastmod>2025-10-07T13:51:02+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-10-07T13:51:02+09:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://www.hitopper.top/about/</loc>
     <lastmod>2025-10-07T13:50:20+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/hello-world/</loc>
+    <loc>https://www.hitopper.top/</loc>
+    <lastmod>2025-10-07T13:50:20+09:00</lastmod>
+  </url><url>
+    <loc>https://www.hitopper.top/posts/</loc>
     <lastmod>2025-10-07T13:29:15+09:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-10-07T13:29:15+09:00</lastmod>
+    <loc>https://www.hitopper.top/dojo/</loc>
+    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://www.hitopper.top/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://www.hitopper.top/tags/</loc>
   </url>
 </urlset>
