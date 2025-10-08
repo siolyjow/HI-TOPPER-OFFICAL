@@ -2,11 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on HI-TOPPER</title>
-    <link>https://www.hitopper.top/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on HI-TOPPER</description>
     <generator>Hugo -- 0.151.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate></lastBuildDate>
-    <atom:link href="https://www.hitopper.top/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Oct 2025 13:29:15 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HI from HI-TOPPER</title>
+      <link>http://localhost:1313/posts/hello-world/</link>
+      <pubDate>Tue, 07 Oct 2025 13:29:15 +0900</pubDate>
+      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;こんにちは、あなたにお会いできてうれしいです。あなたも楽しい気持ちでいてくれるといいのですが、もしそうでなければ、私たちのショップできっと楽しい気分になれます。&lt;/p&gt;
+&lt;p&gt;Hi, nice to meet you! May you feel happiness now.  If not, our store will surely make you happy.&lt;/p&gt;
+&lt;p&gt;HI，见到你很高兴，希望你也很高兴。如果不是的话，我们的商店一定能让你很高兴。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;HI from HI-TOPPER&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

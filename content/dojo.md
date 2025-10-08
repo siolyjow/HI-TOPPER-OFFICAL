@@ -23,11 +23,8 @@ draft: false
 
 ---
 
-<a href="https://j.hitopper.top" target="\_blank">
+![HI-TOPPER Logo](/images/logoF.webp)
 
-&nbsp; <img src="/images/logoF.webp" alt="道场海报" style="max-width:100%; height:auto;" />
-
-</a>
 
 
 

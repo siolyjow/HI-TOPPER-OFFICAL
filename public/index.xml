@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HI-TOPPER</title>
-    <link>https://www.hitopper.top/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on HI-TOPPER</description>
     <generator>Hugo -- 0.151.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 07 Oct 2025 13:50:20 +0900</lastBuildDate>
-    <atom:link href="https://www.hitopper.top/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Us</title>
-      <link>https://www.hitopper.top/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Tue, 07 Oct 2025 13:50:20 +0900</pubDate>
-      <guid>https://www.hitopper.top/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;HI-TOPPERは、人生の経験を積んだ中年たちが集まる場所です。&lt;/p&gt;
 &lt;p&gt;皆、趣味や興味を育み、精神的な世界を豊かにすることに熱心です。&lt;/p&gt;
 &lt;p&gt;私たちの目標は、面白いと思ったものは何でもおすすめすることです。&lt;/p&gt;
@@ -21,10 +21,22 @@
 &lt;p&gt;メールアドレス：siolyjow@gmail.com&lt;/p&gt;</description>
     </item>
     <item>
+      <title>HI from HI-TOPPER</title>
+      <link>http://localhost:1313/posts/hello-world/</link>
+      <pubDate>Tue, 07 Oct 2025 13:29:15 +0900</pubDate>
+      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;こんにちは、あなたにお会いできてうれしいです。あなたも楽しい気持ちでいてくれるといいのですが、もしそうでなければ、私たちのショップできっと楽しい気分になれます。&lt;/p&gt;
+&lt;p&gt;Hi, nice to meet you! May you feel happiness now.  If not, our store will surely make you happy.&lt;/p&gt;
+&lt;p&gt;HI，见到你很高兴，希望你也很高兴。如果不是的话，我们的商店一定能让你很高兴。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;HI from HI-TOPPER&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>酒豪道場</title>
-      <link>https://www.hitopper.top/dojo/</link>
+      <link>http://localhost:1313/dojo/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.hitopper.top/dojo/</guid>
+      <guid>http://localhost:1313/dojo/</guid>
       <description>&lt;p&gt;- 公式サイト：&lt;a href=&#34;https://j.hitopper.top&#34;&gt;https://j.hitopper.top&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;- メールアドレス：shugoudouchou@yahoo.com&lt;/p&gt;
 &lt;hr&gt;
@@ -32,9 +44,7 @@
 &lt;p&gt;酒豪道場は、あなたとお友達のご来場を歓迎します！&lt;/p&gt;
 &lt;p&gt;豪飲万歳！&lt;/p&gt;
 &lt;hr&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;  &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;img alt=&#34;HI-TOPPER Logo&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/logoF.webp&#34;&gt;&lt;/p&gt;
 &lt;p&gt;酒豪とは何か？&lt;/p&gt;
 &lt;p&gt;私は、酒豪とは必ずしも酒量が多い人を指すのではなく、酒とその情緒に対して独自の理解を持つ人のことだと思っています。&lt;/p&gt;
 &lt;p&gt;「三杯吐然ノ諾、五岳倒为軽」の李白先生は、詩仙であると同時に酒豪でもあります。&lt;/p&gt;
