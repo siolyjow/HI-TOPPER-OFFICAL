@@ -23,6 +23,6 @@ theme = "PaperMod"
   weight = 2
 
 [[menu.main]]
-  name = "烟霞境"
+  name = "煙霞境"
   url =  "/enkakyo/"
   weight = 3
