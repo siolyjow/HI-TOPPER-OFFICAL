@@ -22,7 +22,7 @@ HI-TOPPERは、人生の経験を積んだ中年たちが集まる場所です�
 
 
 
-公式サイト：ちょっと待ってください。
+公式サイト：https://www.hitopper.top/。
 
 メールアドレス：siolyjow@gmail.com
 
