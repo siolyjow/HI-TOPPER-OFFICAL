@@ -21,3 +21,8 @@ theme = "PaperMod"
   name = "酒豪道場"
   url = "/dojo/"
   weight = 2
+
+[[menu.main]]
+  name = "烟霞境"
+  url =  "/enkakyo/"
+  weight = 3
