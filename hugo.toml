@@ -26,3 +26,8 @@ theme = "PaperMod"
   name = "煙霞境"
   url =  "/enkakyo/"
   weight = 3
+
+ [[menu.main]]
+    name = "募集"
+    url = "/recruit/"
+    weight = 4
