@@ -12,6 +12,9 @@ theme = "PaperMod"
   ShowShareButtons = false
   footerCopyright = "© 2025 HI-TOPPER · Powered by HI-TOPPER"
 
+[params.homeInfoParams]
+  enabled = false
+
 [[menu.main]]
   name = "ABOUT US"
   url = "/about/"
