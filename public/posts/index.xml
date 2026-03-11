@@ -4,20 +4,57 @@
     <title>Posts on HI-TOPPER</title>
     <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on HI-TOPPER</description>
-    <generator>Hugo -- 0.152.0</generator>
+    <generator>Hugo -- 0.157.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 07 Oct 2025 13:29:15 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 27 Oct 2025 13:29:15 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>喜びこそ真の理</title>
+      <link>http://localhost:1313/posts/joy-the-truest-flame/</link>
+      <pubDate>Mon, 27 Oct 2025 13:29:15 +0900</pubDate>
+      <guid>http://localhost:1313/posts/joy-the-truest-flame/</guid>
+      <description>&lt;hr&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;お金を失ってもまた稼げる、&lt;/p&gt;
+&lt;p&gt;友を失ってもまた交わせる、&lt;/p&gt;
+&lt;p&gt;恋を失ってもまた語り合える。&lt;/p&gt;
+&lt;p&gt;仕事を失ってもまた探せる、&lt;/p&gt;
+&lt;p&gt;生まれながらに何も持たず、&lt;/p&gt;
+&lt;p&gt;だからこそ恐れずに再出発、&lt;/p&gt;
+&lt;p&gt;元々小人物、負ければ負け、&lt;/p&gt;
+&lt;p&gt;今後は他人の目を気にせず生きる。&lt;/p&gt;
+&lt;p&gt;江湖は一碗の茶、飲み干しても再びもがく、&lt;/p&gt;
+&lt;p&gt;外に出れば己で頼り、四海は皆我が家、&lt;/p&gt;
+&lt;p&gt;眠ればすべてを許し、目覚めれば再び生まれ変わる。&lt;/p&gt;
+&lt;p&gt;生きるとは山に道を開き、水に橋を架けること、&lt;/p&gt;
+&lt;p&gt;人生の四句は、ただ生きることこそ勝利、&lt;/p&gt;
+&lt;p&gt;金儲けは遊びに過ぎず、健康こそ目的、&lt;/p&gt;
+&lt;p&gt;喜びこそ真の理。&lt;/p&gt;
+&lt;p&gt;Money’s gone, but you can earn again,&lt;/p&gt;
+&lt;p&gt;Friends may leave, yet new ones you can gain,&lt;/p&gt;
+&lt;p&gt;Love may fade, but hearts can meet again.&lt;/p&gt;
+&lt;p&gt;Jobs may vanish, yet new paths you’ll find,&lt;/p&gt;
+&lt;p&gt;Born with nothing, yet fear not the grind.&lt;/p&gt;
+&lt;p&gt;A small soul I am, if I lose, I lose,&lt;/p&gt;</description>
+    </item>
     <item>
       <title>HI from HI-TOPPER</title>
       <link>http://localhost:1313/posts/hello-world/</link>
       <pubDate>Tue, 07 Oct 2025 13:29:15 +0900</pubDate>
       <guid>http://localhost:1313/posts/hello-world/</guid>
       <description>&lt;hr&gt;
-&lt;p&gt;こんにちは、あなたにお会いできてうれしいです。あなたも楽しい気持ちでいてくれるといいのですが、もしそうでなければ、私たちのショップできっと楽しい気分になれます。&lt;/p&gt;
-&lt;p&gt;Hi, nice to meet you! May you feel happiness now.  If not, our store will surely make you happy.&lt;/p&gt;
-&lt;p&gt;HI，见到你很高兴，希望你也很高兴。如果不是的话，我们的商店一定能让你很高兴。&lt;/p&gt;
-&lt;hr&gt;
+&lt;p&gt;こんにちは、あなたにお会いできてうれしいです。&lt;br&gt;
+あなたも楽しい気持ちでいてくれるといいのですが、&lt;br&gt;
+もしそうでなければ、&lt;br&gt;
+私たちのショップできっと楽しい気分になれます。&lt;/p&gt;
+&lt;p&gt;Hi, nice to meet you!&lt;br&gt;
+May you feel happiness now.&lt;br&gt;
+If not,&lt;br&gt;
+our store will surely make you happy.&lt;/p&gt;
+&lt;h2 id=&#34;我们的商店一定能让你很高兴&#34;&gt;嗨，见到你很高兴，&lt;br&gt;
+希望你也很高兴。&lt;br&gt;
+如果不是的话，&lt;br&gt;
+我们的商店一定能让你很高兴。&lt;/h2&gt;
 &lt;p&gt;HI from HI-TOPPER&lt;/p&gt;</description>
     </item>
   </channel>
