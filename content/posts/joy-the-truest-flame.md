@@ -8,8 +8,6 @@ draft = false
 
 ---
 
-<div style="white-space: pre-line;">
-
 お金を失ってもまた稼げる、
 
 友を失ってもまた交わせる、
@@ -83,8 +81,5 @@ Health is the aim, joy the truest flame.
 活着就要逢山开路遇水架桥，人生四句话，活着就是胜利，
 
 挣钱只是游戏，健康才是目的，快乐才是真谛！
-
-</div>
-
 
 

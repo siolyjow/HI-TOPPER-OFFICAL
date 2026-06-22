@@ -2,19 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on HI-TOPPER</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://www.hitopper.top/posts/</link>
     <description>Recent content in Posts on HI-TOPPER</description>
-    <generator>Hugo -- 0.157.0</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 27 Oct 2025 13:29:15 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.hitopper.top/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>喜びこそ真の理</title>
-      <link>http://localhost:1313/posts/joy-the-truest-flame/</link>
+      <link>https://www.hitopper.top/posts/joy-the-truest-flame/</link>
       <pubDate>Mon, 27 Oct 2025 13:29:15 +0900</pubDate>
-      <guid>http://localhost:1313/posts/joy-the-truest-flame/</guid>
+      <guid>https://www.hitopper.top/posts/joy-the-truest-flame/</guid>
       <description>&lt;hr&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;お金を失ってもまた稼げる、&lt;/p&gt;
 &lt;p&gt;友を失ってもまた交わせる、&lt;/p&gt;
 &lt;p&gt;恋を失ってもまた語り合える。&lt;/p&gt;
@@ -35,13 +33,14 @@
 &lt;p&gt;Love may fade, but hearts can meet again.&lt;/p&gt;
 &lt;p&gt;Jobs may vanish, yet new paths you’ll find,&lt;/p&gt;
 &lt;p&gt;Born with nothing, yet fear not the grind.&lt;/p&gt;
-&lt;p&gt;A small soul I am, if I lose, I lose,&lt;/p&gt;</description>
+&lt;p&gt;A small soul I am, if I lose, I lose,&lt;/p&gt;
+&lt;p&gt;From now on I care not what others choose.&lt;/p&gt;</description>
     </item>
     <item>
       <title>HI from HI-TOPPER</title>
-      <link>http://localhost:1313/posts/hello-world/</link>
+      <link>https://www.hitopper.top/posts/hello-world/</link>
       <pubDate>Tue, 07 Oct 2025 13:29:15 +0900</pubDate>
-      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <guid>https://www.hitopper.top/posts/hello-world/</guid>
       <description>&lt;hr&gt;
 &lt;p&gt;こんにちは、あなたにお会いできてうれしいです。&lt;br&gt;
 あなたも楽しい気持ちでいてくれるといいのですが、&lt;br&gt;

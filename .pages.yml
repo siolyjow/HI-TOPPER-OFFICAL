@@ -110,14 +110,6 @@ content:
             label: Slug
             type: string
             required: false
-          - name: menu
-            label: Menu
-            type: string
-            required: false
-          - name: weight
-            label: Menu weight
-            type: number
-            required: false
           - name: body
             label: Body
             type: rich-text

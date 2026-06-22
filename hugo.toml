@@ -2,6 +2,7 @@ baseURL = "https://www.hitopper.top/"
 languageCode = "zh-cn"
 title = "HI-TOPPER"
 theme = "PaperMod"
+disableHugoGeneratorInject = true
 
 [params]
   author = "HI-TOPPER"
@@ -11,7 +12,7 @@ theme = "PaperMod"
   ShowBreadCrumbs = true
   ShowShareButtons = false
   disableSpecial1stPost = true
-  footerCopyright = "© 2025 HI-TOPPER · Powered by HI-TOPPER"
+  footerCopyright = "© 2025 HI-TOPPER"
 
 [[menu.main]]
   name = "ABOUT US"

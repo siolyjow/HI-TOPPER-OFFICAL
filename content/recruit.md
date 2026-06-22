@@ -1,8 +1,6 @@
 ---
 title: "募集"
 slug: "recruit"
-menu: main
-weight: 4
 ---
 
 ## 一、募集職種

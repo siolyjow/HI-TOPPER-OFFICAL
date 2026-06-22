@@ -2,44 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>お酒ギフト特集 on HI-TOPPER</title>
-    <link>http://localhost:1313/gift/</link>
+    <link>https://www.hitopper.top/gift/</link>
     <description>Recent content in お酒ギフト特集 on HI-TOPPER</description>
-    <generator>Hugo -- 0.157.0</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/gift/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.hitopper.top/gift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>上司に贈るお酒プレゼント｜ビジネスシーンで喜ばれるお酒ギフト</title>
-      <link>http://localhost:1313/gift/sake-gift-boss/</link>
+      <link>https://www.hitopper.top/gift/sake-gift-boss/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/gift/sake-gift-boss/</guid>
+      <guid>https://www.hitopper.top/gift/sake-gift-boss/</guid>
       <description>上司への贈り物におすすめのお酒ギフトを紹介。高級感のあるウイスキー、日本酒、珍しい海外のお酒など。</description>
     </item>
     <item>
       <title>母の日におすすめのお酒ギフト｜お母さんが喜ぶ特別なプレゼント</title>
-      <link>http://localhost:1313/gift/sake-gift-mother/</link>
+      <link>https://www.hitopper.top/gift/sake-gift-mother/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/gift/sake-gift-mother/</guid>
+      <guid>https://www.hitopper.top/gift/sake-gift-mother/</guid>
       <description>母の日のプレゼントに人気のお酒ギフトを紹介。ワイン、日本酒、そして珍しい世界のお酒までおすすめを解説。</description>
     </item>
     <item>
       <title>父の日におすすめのお酒ギフト｜お父さんが喜ぶ特別なプレゼント</title>
-      <link>http://localhost:1313/gift/sake-gift-father/</link>
+      <link>https://www.hitopper.top/gift/sake-gift-father/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/gift/sake-gift-father/</guid>
+      <guid>https://www.hitopper.top/gift/sake-gift-father/</guid>
       <description>父の日のプレゼントに人気のお酒ギフトを紹介。ウイスキー、日本酒、そして珍しい中国高級酒までおすすめを解説。</description>
     </item>
     <item>
       <title>珍しいお酒ギフト｜特別なプレゼントにおすすめの世界の酒</title>
-      <link>http://localhost:1313/gift/rare-sake-gift/</link>
+      <link>https://www.hitopper.top/gift/rare-sake-gift/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/gift/rare-sake-gift/</guid>
+      <guid>https://www.hitopper.top/gift/rare-sake-gift/</guid>
       <description>珍しいお酒ギフトを紹介。世界の蒸留酒や中国高級酒など、特別なプレゼントにぴったりのお酒。</description>
     </item>
     <item>
       <title>男性におすすめのお酒ギフト5選｜誕生日や記念日のプレゼントに</title>
-      <link>http://localhost:1313/gift/sake-gift-men/</link>
+      <link>https://www.hitopper.top/gift/sake-gift-men/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/gift/sake-gift-men/</guid>
+      <guid>https://www.hitopper.top/gift/sake-gift-men/</guid>
       <description>男性へのプレゼントに人気のお酒ギフトを紹介。ウイスキー、日本酒、そして珍しい中国高級酒までおすすめを解説。</description>
     </item>
   </channel>
