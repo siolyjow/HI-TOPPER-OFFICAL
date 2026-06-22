@@ -10,10 +10,8 @@ theme = "PaperMod"
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowShareButtons = false
+  disableSpecial1stPost = true
   footerCopyright = "© 2025 HI-TOPPER · Powered by HI-TOPPER"
-
-[params.homeInfoParams]
-  enabled = false
 
 [[menu.main]]
   name = "ABOUT US"

@@ -1,0 +1,233 @@
+media:
+  input: static/images
+  output: /images
+  rename: safe
+  extensions: [png, jpg, jpeg, webp, gif, svg]
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: app
+    templates:
+      create: "cms: create {path}"
+      update: "cms: update {path}"
+      delete: "cms: delete {path}"
+      rename: "cms: rename {oldPath} -> {newPath}"
+
+content:
+  - name: main-pages
+    label: Main pages
+    type: group
+    items:
+      - name: home
+        label: Home
+        type: file
+        path: content/_index.md
+        format: yaml-frontmatter
+        fields:
+          - name: title
+            label: Page title
+            type: string
+            required: false
+          - name: body
+            label: Body
+            type: rich-text
+
+      - name: about
+        label: About Us
+        type: file
+        path: content/about.md
+        format: toml-frontmatter
+        fields:
+          - name: title
+            label: Page title
+            type: string
+          - name: date
+            label: Date
+            type: date
+            required: false
+          - name: draft
+            label: Draft
+            type: boolean
+            required: false
+          - name: body
+            label: Body
+            type: rich-text
+
+      - name: dojo
+        label: 酒豪道場
+        type: file
+        path: content/dojo.md
+        format: yaml-frontmatter
+        fields:
+          - name: title
+            label: Page title
+            type: string
+          - name: date
+            label: Date
+            type: date
+            required: false
+          - name: draft
+            label: Draft
+            type: boolean
+            required: false
+          - name: body
+            label: Body
+            type: rich-text
+
+      - name: enkakyo
+        label: 煙霞境
+        type: file
+        path: content/enkakyo.md
+        format: yaml-frontmatter
+        fields:
+          - name: title
+            label: Page title
+            type: string
+          - name: date
+            label: Date
+            type: date
+            required: false
+          - name: draft
+            label: Draft
+            type: boolean
+            required: false
+          - name: body
+            label: Body
+            type: rich-text
+
+      - name: recruit
+        label: 募集
+        type: file
+        path: content/recruit.md
+        format: yaml-frontmatter
+        fields:
+          - name: title
+            label: Page title
+            type: string
+          - name: slug
+            label: Slug
+            type: string
+            required: false
+          - name: menu
+            label: Menu
+            type: string
+            required: false
+          - name: weight
+            label: Menu weight
+            type: number
+            required: false
+          - name: body
+            label: Body
+            type: rich-text
+
+  - name: gift-pages
+    label: お酒ギフト
+    type: group
+    items:
+      - name: gift-index
+        label: お酒ギフト top page
+        type: file
+        path: content/gift/_index.md
+        format: yaml-frontmatter
+        fields:
+          - name: title
+            label: Page title
+            type: string
+          - name: description
+            label: SEO description
+            type: text
+            required: false
+          - name: body
+            label: Body
+            type: rich-text
+
+      - name: gift-articles
+        label: お酒ギフト articles
+        type: collection
+        path: content/gift
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: ["_index.md"]
+        view:
+          primary: title
+        fields:
+          - name: title
+            label: Page title
+            type: string
+          - name: description
+            label: SEO description
+            type: text
+            required: false
+          - name: body
+            label: Body
+            type: rich-text
+
+  - name: incense-pages
+    label: お香ギフト
+    type: group
+    items:
+      - name: incense-index
+        label: お香ギフト top page
+        type: file
+        path: content/incense/_index.md
+        format: yaml-frontmatter
+        fields:
+          - name: title
+            label: Page title
+            type: string
+          - name: description
+            label: SEO description
+            type: text
+            required: false
+          - name: body
+            label: Body
+            type: rich-text
+
+      - name: incense-articles
+        label: お香ギフト articles
+        type: collection
+        path: content/incense
+        format: yaml-frontmatter
+        filename: "{primary}.md"
+        exclude: ["_index.md"]
+        view:
+          primary: title
+        fields:
+          - name: title
+            label: Page title
+            type: string
+          - name: description
+            label: SEO description
+            type: text
+            required: false
+          - name: body
+            label: Body
+            type: rich-text
+
+  - name: posts
+    label: Posts
+    type: collection
+    path: content/posts
+    format: toml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: Page title
+        type: string
+      - name: date
+        label: Date
+        type: date
+        required: false
+      - name: draft
+        label: Draft
+        type: boolean
+        required: false
+      - name: body
+        label: Body
+        type: rich-text
