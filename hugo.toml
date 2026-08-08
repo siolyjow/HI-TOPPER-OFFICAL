@@ -3,8 +3,12 @@ languageCode = "zh-cn"
 title = "HI-TOPPER"
 theme = "PaperMod"
 disableHugoGeneratorInject = true
+enableRobotsTXT = true
 
 [params]
+  # Keep production pages indexable even if the deployment environment does
+  # not set Hugo's production flag explicitly.
+  env = "production"
   author = "HI-TOPPER"
   description = "心と体を温めるアーティスト"
   ShowReadingTime = true
