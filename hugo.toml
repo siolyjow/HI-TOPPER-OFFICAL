@@ -47,3 +47,8 @@ enableRobotsTXT = true
     name = "募集"
     url = "/recruit/"
     weight = 6
+
+[[menu.main]]
+  name = "運命の裁定者"
+  url = "/fate/"
+  weight = 7

@@ -1,0 +1,103 @@
+{{- define "main" -}}
+<div class="fate-page">
+  <h1 class="fate-page__sr-only">運命の裁定者</h1>
+  <div class="fate-page__frame-wrap">
+    <iframe
+      class="fate-page__frame"
+      data-fate-frame
+      title="運命の裁定者"
+      allow="autoplay; clipboard-write"
+      loading="eager"></iframe>
+  </div>
+  <p class="fate-page__action">
+    <a data-fate-open target="_blank" rel="noopener noreferrer">別ウィンドウで開く</a>
+  </p>
+</div>
+<style>
+  .main:has(.fate-page) {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+  }
+
+  .fate-page {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .fate-page__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .fate-page__frame-wrap {
+    width: 100%;
+    min-height: 560px;
+    overflow: visible;
+  }
+
+  .fate-page__frame {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: max(560px, calc(100svh - var(--fate-header-height, 120px) - 36px));
+    min-height: 560px;
+    border: 0;
+    background: transparent;
+  }
+
+  .fate-page__action {
+    margin: 12px 0 0;
+    text-align: center;
+  }
+
+  .fate-page__action a {
+    color: var(--secondary);
+    font-size: 14px;
+    text-decoration: underline;
+  }
+
+</style>
+<script>
+  (() => {
+    const frame = document.querySelector('[data-fate-frame]');
+    const openLink = document.querySelector('[data-fate-open]');
+    if (!frame || !openLink) return;
+
+    const base = 'https://fate-arbiter.siolyjow.workers.dev/';
+    const query = window.location.search;
+    const fragment = window.location.hash;
+    const target = base + query + fragment;
+
+    frame.src = target;
+    openLink.href = target;
+
+    if (fragment.startsWith('#delivery=')) {
+      window.history.replaceState(null, '', window.location.pathname + query);
+      openLink.href = base + query;
+    }
+
+    const fitHeader = () => {
+      const header = document.querySelector('.header');
+      if (header) frame.style.setProperty('--fate-header-height', header.offsetHeight + 'px');
+    };
+    fitHeader();
+    window.addEventListener('resize', fitHeader);
+    document.addEventListener('DOMContentLoaded', () => {
+      fitHeader();
+      const menu = document.getElementById('menu');
+      if (menu) menu.scrollLeft = menu.scrollWidth;
+    });
+  })();
+</script>
+{{- end -}}
