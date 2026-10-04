@@ -1,0 +1,2 @@
+# Local placeholders only. Match the Worker FATE_PROXY_SECRET.
+FATE_PROXY_SECRET=replace-with-a-third-long-random-secret-shared-with-worker

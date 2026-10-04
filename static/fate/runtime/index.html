@@ -1,0 +1,175 @@
+
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>運命の裁定者</title>
+<link rel="icon" type="image/webp" href="./favicon.webp?v=20261003">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f5f1e8;--ink:#172236;--gold:#ffd76c;--gold2:#ffeeb8;--cyan:#b8ebff;--rose:#ffd6e7;--panel:#ffffffde;--line:#20304a25}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;min-height:100vh;overflow-x:hidden;color:#f7fbff;font-family:"Noto Serif SC","Songti SC","Yu Mincho",serif;display:grid;place-items:center;padding:18px;background:
+radial-gradient(1.5px 1.5px at 12% 18%,#fff 98%,transparent 100%),
+radial-gradient(1px 1px at 28% 62%,#fff8 98%,transparent 100%),
+radial-gradient(2px 2px at 74% 20%,#fff 98%,transparent 100%),
+radial-gradient(1.2px 1.2px at 86% 72%,#fff8 98%,transparent 100%),
+radial-gradient(1.8px 1.8px at 56% 82%,#fff 98%,transparent 100%),
+radial-gradient(ellipse at 50% 10%,#2d3f79 0,#161f43 40%,#090f23 72%,#050915 100%);
+}
+body::before,body::after{content:"";position:fixed;inset:-10%;pointer-events:none;opacity:.65;background-repeat:repeat;background-size:320px 320px;mix-blend-mode:screen}
+body::before{background-image:
+radial-gradient(1px 1px at 48px 70px,#fff,transparent 70%),
+radial-gradient(1.5px 1.5px at 200px 110px,#dff6ff,transparent 70%),
+radial-gradient(2px 2px at 150px 250px,#fff,transparent 70%),
+radial-gradient(1px 1px at 260px 200px,#ffeab5,transparent 70%),
+radial-gradient(1px 1px at 90px 180px,#fff,transparent 70%);
+animation:drift 36s linear infinite}
+body::after{background-image:
+radial-gradient(1px 1px at 120px 40px,#fff,transparent 70%),
+radial-gradient(1.6px 1.6px at 240px 230px,#fff,transparent 70%),
+radial-gradient(1px 1px at 280px 120px,#c6edff,transparent 70%),
+radial-gradient(1px 1px at 20px 240px,#fff,transparent 70%),
+radial-gradient(2px 2px at 170px 160px,#fff2be,transparent 70%);
+animation:twinkle 5s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateY(20px)}}
+@keyframes twinkle{50%{opacity:.35}to{opacity:.85}}
+main{width:min(920px,100%)}
+.head{text-align:center;margin-bottom:14px}
+h1{margin:0;font-size:clamp(38px,5vw,64px);font-weight:900;letter-spacing:.08em;text-shadow:0 0 18px #9abaff55,0 0 40px #ffffff22}
+.form{position:relative;background:linear-gradient(180deg,#ffffffea,#f5f6fbde);backdrop-filter:blur(10px);color:var(--ink);padding:24px;border-radius:26px;box-shadow:0 22px 60px #00000045, inset 0 0 0 1px #ffffff80;border:1px solid #ffffff80}
+.topline{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;margin-bottom:14px;min-height:24px}
+.meta{flex:1 1 auto;min-width:0;max-width:100%;font-size:14px;color:#27385a;opacity:.88;overflow-wrap:anywhere}
+.link{background:none;border:0;padding:0;font:inherit;color:#314b86;text-decoration:underline;cursor:pointer}.music{font-size:22px;text-decoration:none;opacity:.65}.music.on{opacity:1;color:#8c6900;text-shadow:0 0 9px #ffd96a}.langwrap{position:relative;display:inline-block}.langbtn{font-size:21px;text-decoration:none;line-height:1}.langmenu{position:absolute;right:0;top:30px;z-index:20;min-width:150px;padding:7px;background:#ffffffef;border:1px solid #cbd6eb;border-radius:12px;box-shadow:0 12px 30px #0003}.langmenu button{display:block;width:100%;padding:9px 10px;border:0;background:transparent;text-align:left;border-radius:8px;font:inherit;color:#23324f;cursor:pointer}.langmenu button:hover{background:#eef3ff}
+.inputrow{display:flex;gap:14px;align-items:center}
+.inputrow input{flex:1;min-width:0;width:100%;font:inherit;font-size:20px;padding:16px 18px;border:1px solid #b8c6e95a;border-radius:16px;background:#ffffffd9;color:var(--ink);box-shadow:inset 0 1px 0 #fff}
+.inputrow input:focus-visible{outline:2px solid #8eb0ff;outline-offset:1px}
+.go{padding:15px 24px;border:0;border-radius:16px;background:linear-gradient(180deg,#2e4b87,#18284d);color:#f7fbff;font:inherit;font-size:18px;font-weight:700;letter-spacing:.08em;cursor:pointer;white-space:nowrap;box-shadow:0 10px 24px #14244633}
+button:disabled{opacity:.45;cursor:not-allowed}
+.reelsWrap{display:flex;gap:18px;align-items:center;margin:18px 0 6px}
+.reels{display:flex;gap:14px;justify-content:center;flex:1;padding:20px;background:linear-gradient(180deg,#0f1833,#0c1328);border-radius:22px;box-shadow:inset 0 0 0 1px #ffffff10, inset 0 18px 30px #fff1, inset 0 -18px 30px #0007;min-width:0}
+.reel{width:180px;height:132px;overflow:hidden;border-radius:18px;background:linear-gradient(180deg,#132142,#0f1a34);box-shadow:inset 0 1px 0 #ffffff20,inset 0 12px 18px #ffffff10,inset 0 -12px 18px #0007,0 8px 16px #0003;display:flex;justify-content:center}
+.strip{width:100%}
+.word{height:132px;display:grid;place-items:center;font-size:52px;font-weight:900;letter-spacing:.12em;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 12px #ffffff22,0 0 32px #ffffff12;position:relative}
+.word span{display:inline-block;filter:drop-shadow(0 0 10px #ffffff28)}
+.word.yes{background-image:
+radial-gradient(circle at 18% 35%,#fffef7 0 1.3px,transparent 1.4px),
+radial-gradient(circle at 34% 70%,#ffffff 0 1.1px,transparent 1.2px),
+radial-gradient(circle at 62% 26%,#fff4b1 0 1.8px,transparent 1.9px),
+radial-gradient(circle at 80% 68%,#fff 0 1.2px,transparent 1.3px),
+linear-gradient(180deg,#fffef3,#ffe793 48%,#fff7ca 100%)}
+.word.no{background-image:
+radial-gradient(circle at 20% 30%,#ffffff 0 1.2px,transparent 1.3px),
+radial-gradient(circle at 52% 60%,#eaf6ff 0 1.2px,transparent 1.3px),
+radial-gradient(circle at 76% 26%,#ffffff 0 1.6px,transparent 1.7px),
+radial-gradient(circle at 84% 74%,#d6e8ff 0 1.2px,transparent 1.3px),
+linear-gradient(180deg,#f9fbff,#bfe3ff 52%,#eff8ff 100%)}
+.reel.yes{box-shadow:inset 0 0 0 1px #ffe9a455,inset 0 1px 0 #fff3,0 0 24px #ffe38d1f}
+.reel.no{box-shadow:inset 0 0 0 1px #c2e7ff44,inset 0 1px 0 #fff2,0 0 24px #a2d9ff14}
+.result{min-height:56px;margin-top:14px;display:grid;place-items:center;text-align:center;color:#243558}
+.result .msg{font-size:44px;font-weight:900;line-height:1.08;letter-spacing:.04em}
+.result .msg.big{font-size:44px;font-weight:900;line-height:1.08;letter-spacing:.04em}
+.keybox{display:flex;gap:10px;margin-top:8px}.keybox[hidden]{display:none!important}.keybox input{flex:1;min-width:0;padding:12px 14px;border-radius:14px;border:1px solid #c1d0ec;background:#fff;font:inherit}.keybox button{border:0;border-radius:14px;padding:0 18px;background:#1b2f58;color:#fff;font:inherit;cursor:pointer}
+.deliverybox{display:flex;gap:8px;align-items:center;margin-top:10px;padding:10px 12px;border:1px solid #c1d0ec;border-radius:14px;background:#f8fbff;color:#243558;font-size:14px}.deliverybox[hidden]{display:none!important}.deliverybox input{flex:1;min-width:0;padding:9px 10px;border-radius:10px;border:1px solid #c1d0ec;background:#fff;color:#172236;font:inherit;letter-spacing:.04em}.deliverybox button{border:0;border-radius:10px;padding:9px 12px;background:#1b2f58;color:#fff;font:inherit;cursor:pointer}.deliverybox .deliverymsg{flex-basis:100%;font-size:12px;opacity:.8}.deliverybox{flex-wrap:wrap}
+.purchaseRow{text-align:center;margin-top:16px}.purchase{display:inline-flex;align-items:center;justify-content:center;max-width:100%;min-height:44px;padding:12px 22px;border-radius:14px;background:linear-gradient(180deg,#ffd76c,#edbd4b);color:#302410;font:inherit;font-weight:700;text-decoration:none;box-shadow:0 6px 18px #9c762b25}.purchase:hover{background:#ffe293}.purchase:focus-visible{outline:2px solid #314b86;outline-offset:3px}
+.shake{animation:shake .34s}
+@keyframes shake{20%{transform:translate(-6px,4px)}40%{transform:translate(6px,-4px)}60%{transform:translate(-4px,2px)}80%{transform:translate(2px,-1px)}}
+body.tense .reels{box-shadow:inset 0 0 0 1px #fff4, 0 0 0 1px #ffefb31f, inset 0 18px 30px #fff1, inset 0 -18px 30px #0007, 0 0 36px #ffe08d26}
+body.tense::after{animation:twinkle .6s ease-in-out infinite alternate}
+.c{position:fixed;top:-20px;width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 14px currentColor;animation:fall linear forwards;pointer-events:none}
+@keyframes fall{to{transform:translateY(110vh) scale(.7);opacity:.1}}
+@media (max-width:860px){main{width:min(100%,760px)}.inputrow{flex-direction:column;align-items:stretch}.go{width:100%}.reelsWrap{gap:12px}.reel{width:150px}.word{font-size:46px}}
+@media (max-width:640px){body{padding:14px}.form{padding:18px;border-radius:20px}.reelsWrap{flex-direction:column}.reels{width:100%;gap:10px;padding:12px}.reel{width:calc((100% - 20px)/3);height:104px;border-radius:14px}.word{height:104px;font-size:clamp(22px,8vw,34px);font-family:Arial,Helvetica,sans-serif;line-height:1;letter-spacing:.04em;text-shadow:none}.word span{filter:none;padding-left:.04em}.word.yes span{color:#ffe793}.word.no span{color:#d6ecff}.result .msg,.result .msg.big{font-size:34px}.topline{margin-bottom:10px}.inputrow input{font-size:18px;padding:14px 14px}}
+@media (prefers-reduced-motion:reduce){body::before,body::after,.shake{animation:none}}
+</style></head><body>
+<main>
+  <div class="head">
+    <h1>運命の裁定者</h1>
+    
+  </div>
+  <section class="form" id="form">
+    <div class="topline"><span class="meta" id="left"></span><div><span class="langwrap"><button class="link langbtn" id="langbtn" title="言語">日本語</button><div class="langmenu" id="langmenu" hidden><button data-lang="zh">中文</button><button data-lang="ja">日本語</button><button data-lang="en">EN</button><button data-lang="ko">한국어</button></div></span>&nbsp;&nbsp;<button class="link music" id="musicbtn" title="音楽">♪</button>&nbsp;&nbsp;<button class="link" id="keybtn">認証</button></div></div>
+    <div class="inputrow">
+      <input id="q" maxlength="60" placeholder="例：今すぐ帰りたい" autocomplete="off">
+      <button class="go" id="go">裁定する</button>
+    </div>
+    <div class="keybox" id="keybox" hidden><input id="key" placeholder="XXXX-XXXX-XXXX" aria-label="シリアル番号"><button id="redeem">確認</button></div>
+    <div class="deliverybox" id="deliverybox" hidden><span id="deliverylabel"></span><input id="deliverycode" readonly aria-label=""><button id="deliverycopy" type="button"></button><span class="deliverymsg" id="deliverymessage"></span></div>
+    <div class="reelsWrap">
+      <div class="reels" id="reels" aria-hidden="true"></div>
+    </div>
+    <div class="result" id="result" aria-live="polite"></div>
+    <div class="purchaseRow"><a class="purchase" id="purchase" href="https://j.hitopper.top/?fate-buy=574" target="_blank" rel="noopener noreferrer">シリアル番号を購入</a></div>
+  </section>
+</main>
+<script>
+const FATE_API_BASE=location.pathname.startsWith("/fate/runtime/")?"/fate/api":"/api";
+const fateFetch=(path,options)=>fetch(FATE_API_BASE+path.slice(4),options);
+const deliveryTokenFromFragment=(()=>{const h=location.hash||'';const p='#delivery=';if(!h.startsWith(p))return null;const token=h.slice(p.length);history.replaceState(null,'',location.pathname+location.search);return token})();
+const DELIVERY_TOKEN_RE=/^[A-Za-z0-9_-]{43}$/;
+const DELIVERY_KEY_RE=/^[A-Za-z0-9]{12}$/;
+const DELIVERY_STORAGE_KEY='fate_delivery_token';
+function getDeliveryRetryToken(){try{return sessionStorage.getItem(DELIVERY_STORAGE_KEY)}catch{return null}}
+function clearDeliveryRetryToken(){try{sessionStorage.removeItem(DELIVERY_STORAGE_KEY)}catch{}}
+function saveDeliveryRetryToken(token){try{sessionStorage.setItem(DELIVERY_STORAGE_KEY,token)}catch{}}
+const deliveryStartupToken=deliveryTokenFromFragment||getDeliveryRetryToken();
+const $=id=>document.getElementById(id);
+const I18N={
+ zh:{title:'命运裁决者',placeholder:'例如：我现在想回家',start:'开始裁决',used:'今日已用完',today:n=>`今日 ${n} 次`,activate:'激活',ok:'确定',empty:'先写问题',judging:'裁决中…',wait:'再等等',go:'快去吧',bad:'序列号错误',bound:'此序列号已绑定其他设备。请联系购买店铺恢复授权',alreadyRegistered:'当前设备已有有效授权，此码可用于另一台设备/到期后激活',locked:'尝试过多，请稍后再试',expired:'激活码已到期，请重新购买',activationError:'激活失败，请稍后重试',auth:'设备认证失败',net:'网络异常',music:'音乐',lang:'语言',purchase:'购买激活码',validUntil:d=>`有效期至 ${d}`,deliverySuccess:'激活码已填入，请点击“激活”完成绑定',deliverySuccess30:'激活码已填入，有效期从首次激活起30天。请点击“激活”完成绑定',deliveryCode:'激活码',deliveryOther:'已激活设备：可复制此激活码到其他设备',deliveryCopy:'复制',deliveryCopied:'已复制',deliveryError:'激活码交付失败',deliveryInvalid:'收到的激活码格式无效',deliveryRetry:'交付失败，刷新页面重试'},
+ ja:{title:'運命の裁定者',placeholder:'例：今すぐ帰りたい',start:'裁定する',used:'本日は終了',today:n=>`本日 ${n} 回`,activate:'認証',ok:'確認',empty:'まず質問を入力',judging:'裁定中…',wait:'もう少し待って',go:'今すぐ行こう',bad:'シリアル番号が違います',bound:'この番号は別の端末に登録済みです。購入店に認証の復旧をご依頼ください',alreadyRegistered:'この端末には有効な認証があります。このコードは別の端末、または期限切れ後に使用できます',locked:'試行回数が多すぎます。後でもう一度お試しください',expired:'認証コードの有効期限が切れています。もう一度ご購入ください',activationError:'認証に失敗しました。しばらくしてから再試行してください',auth:'端末認証に失敗しました',net:'通信エラー',music:'音楽',lang:'言語',purchase:'シリアル番号を購入',validUntil:d=>`有効期限：${d}`,deliverySuccess:'認証コードを入力しました。「認証」を押して端末に登録してください',deliverySuccess30:'認証コードを入力しました。有効期間は初回認証から30日です。「認証」を押して登録してください',deliveryCode:'認証コード',deliveryOther:'認証済み端末：他の端末用にこのコードをコピーできます',deliveryCopy:'コピー',deliveryCopied:'コピーしました',deliveryError:'認証コードの受け取りに失敗しました',deliveryInvalid:'受け取った認証コードの形式が正しくありません',deliveryRetry:'受け取りに失敗しました。ページを再読み込みして再試行してください'},
+ en:{title:'Fate Arbiter',placeholder:'e.g. I want to go home now',start:'Decide',used:'No tries left today',today:n=>`${n} free today`,activate:'Activate',ok:'OK',empty:'Enter a question first',judging:'Deciding…',wait:'Wait a little longer',go:'Go now',bad:'Invalid serial number',bound:'This serial number is already bound to another device',alreadyRegistered:'This device already has an active license. This code can be used on another device or after it expires',locked:'Too many attempts. Try again later',expired:'This activation code has expired. Please purchase a new one',activationError:'Activation failed. Please try again later',auth:'Device authentication failed',net:'Network error',music:'Music',lang:'Language',purchase:'Buy an activation code',validUntil:d=>`Valid until ${d}`,deliverySuccess:'Your activation code is filled in. Click “Activate” to bind it to this device',deliverySuccess30:'Your activation code is filled in. It is valid for 30 days from first activation. Click “Activate” to bind it',deliveryCode:'Activation code',deliveryOther:'Already activated: copy this code for another device',deliveryCopy:'Copy',deliveryCopied:'Copied',deliveryError:'Activation code delivery failed',deliveryInvalid:'The received activation code has an invalid format',deliveryRetry:'Delivery failed. Reload the page to retry'},
+ ko:{title:'운명의 심판자',placeholder:'예: 지금 집에 가고 싶어요',start:'판정하기',used:'오늘의 기회를 모두 사용했습니다',today:n=>`오늘 ${n}회`,activate:'활성화',ok:'확인',empty:'먼저 질문을 입력하세요',judging:'판정 중…',wait:'조금 더 기다려요',go:'지금 가세요',bad:'시리얼 번호가 올바르지 않습니다',bound:'이 시리얼 번호는 다른 기기에 등록되어 있습니다',alreadyRegistered:'현재 기기에 유효한 라이선스가 있습니다. 이 코드는 다른 기기 또는 만료 후 사용할 수 있습니다',locked:'시도 횟수가 너무 많습니다. 나중에 다시 시도하세요',expired:'활성화 코드가 만료되었습니다. 다시 구매해 주세요',activationError:'활성화에 실패했습니다. 잠시 후 다시 시도하세요',auth:'기기 인증에 실패했습니다',net:'네트워크 오류',music:'음악',lang:'언어',purchase:'활성화 코드 구매',validUntil:d=>`사용 기한: ${d}`,deliverySuccess:'활성화 코드가 입력되었습니다. “활성화”를 눌러 이 기기에 등록하세요',deliverySuccess30:'활성화 코드가 입력되었습니다. 최초 활성화 후 30일 동안 유효합니다. “활성화”를 눌러 등록하세요',deliveryCode:'활성화 코드',deliveryOther:'이미 활성화됨: 다른 기기에서 사용할 수 있도록 이 코드를 복사하세요',deliveryCopy:'복사',deliveryCopied:'복사됨',deliveryError:'활성화 코드 전달에 실패했습니다',deliveryInvalid:'받은 활성화 코드 형식이 올바르지 않습니다',deliveryRetry:'전달에 실패했습니다. 페이지를 새로 고쳐 다시 시도하세요'}
+};
+let lang='ja';try{lang=localStorage.getItem('fate_lang')||'ja'}catch{}
+const T=()=>I18N[lang];
+const WORDS=['YES','NO'], strips=[];
+function makeCell(word){const d=document.createElement('div');d.className='word '+word.toLowerCase();d.innerHTML=`<span>${word}</span>`;return d}
+for(let i=0;i<3;i++){const s=document.createElement('div');s.className='strip';for(let k=0;k<26;k++)s.appendChild(makeCell(WORDS[k%2]));const r=document.createElement('div');r.className='reel';r.appendChild(s);$('reels').appendChild(r);strips.push({r,s})}
+function reelHeight(i){return strips[i].s.firstElementChild.getBoundingClientRect().height}
+function setPos(i,pos,blur){const x=strips[i],s=x.s,dpr=window.devicePixelRatio||1;x.row=pos/reelHeight(i);s.style.transform=`translateY(${-Math.round(pos*dpr)/dpr}px)`;s.style.filter=window.matchMedia('(max-width:640px)').matches?'':blur>.3?`blur(${blur}px)`:''}
+window.addEventListener('resize',()=>strips.forEach((x,i)=>setPos(i,(x.row||0)*reelHeight(i),0)));
+strips.forEach((_,i)=>setPos(i,0,0));
+function formatExpiry(ts){const n=Number(ts);if(!Number.isFinite(n)||n<=0)return'';const locale=lang==='zh'?'zh-CN':lang==='ja'?'ja-JP':lang==='ko'?'ko-KR':'en-US';try{return new Intl.DateTimeFormat(locale,{dateStyle:'medium',timeStyle:'short'}).format(new Date(n*1000))}catch{return''}}
+let busy=false,st={premium:false,free_left:1},deliveryState={licenseKey:null,durationDays:null};
+function render(){const t=T();document.documentElement.lang=lang==='zh'?'zh-CN':lang;document.title=t.title;document.querySelector('h1').textContent=t.title;$('q').placeholder=t.placeholder;$('keybtn').textContent=t.activate;$('redeem').textContent=t.ok;$('musicbtn').title=t.music;$('langbtn').title=t.lang;$('purchase').textContent=t.purchase;$('deliverylabel').textContent=st.premium?t.deliveryOther:t.deliveryCode;$('deliverycopy').textContent=t.deliveryCopy;$('deliverycode').setAttribute('aria-label',t.deliveryCode);if(st.premium){$('left').textContent=formatExpiry(st.expires_at)?t.validUntil(formatExpiry(st.expires_at)):'';$('keybtn').hidden=true;$('keybox').hidden=true;}else{$('left').textContent=t.today(st.free_left);$('keybtn').hidden=false;if(deliveryState.licenseKey)$('keybox').hidden=false}if(deliveryState.licenseKey){$('deliverycode').value=deliveryState.licenseKey;$('deliverybox').hidden=!st.premium}else{$('deliverybox').hidden=true}const out=!st.premium&&st.free_left<1;$('go').disabled=busy||out;$('go').textContent=out?t.used:t.start}
+function confetti(){const cs=['#ffe08e','#fff','#b9e8ff','#f6f4ff'];for(let i=0;i<60;i++){const c=document.createElement('i');c.className='c';c.style.left=(Math.random()*100)+'vw';c.style.color=cs[i%4];c.style.animationDuration=(2+Math.random()*2)+'s';c.style.animationDelay=(Math.random()*.5)+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),5000)}}
+function applyWordGlow(vals){strips.forEach((x,idx)=>{x.r.classList.remove('yes','no');x.r.classList.add(vals[idx].toLowerCase())})}
+function spinTo(target){return new Promise(done=>{const tense=target[0]==='YES'&&target[1]==='YES';const t0=performance.now();const dur=[1.9,2.7,tense?5.1:3.7];const stopBase=[14,17,tense?22:20];const finalIndices=target.map((w,i)=>{const want=w==='YES'?0:1;return stopBase[i]%2===want?stopBase[i]:stopBase[i]+1});applyWordGlow(['NO','NO','NO']);(function tick(now){const t=(now-t0)/1000;let all=true;for(let i=0;i<3;i++){const H=reelHeight(i),u=Math.min(t/dur[i],1),e=1-(1-u)**3.3,pos=(finalIndices[i]*H)*e,v=(finalIndices[i]*H)*(3.3)*(1-u)**2.3/dur[i];setPos(i,pos,Math.min(3.5,v/150));if(u<1)all=false}document.body.classList.toggle('tense',tense&&t>dur[1]&&t<dur[2]);if(all){document.body.classList.remove('tense');applyWordGlow(target);done()}else requestAnimationFrame(tick)})(t0)})}
+function showResult(res){const ok=res.reels.length===3&&res.reels.every(v=>v==='YES');$('result').innerHTML='';const a=document.createElement('div');a.className='msg';a.textContent=ok?T().go:T().wait;$('result').append(a);if(ok)confetti();else setTimeout(()=>{$('form').classList.add('shake');setTimeout(()=>$('form').classList.remove('shake'),340)},220)}
+
+function deliveryMessage(text){$('result').textContent=text}
+function showDeliveredCode(key,durationDays){deliveryState.licenseKey=key;deliveryState.durationDays=durationDays;if(!st.premium)$('key').value=key;render();if(st.premium){$('deliverymessage').textContent=T().deliveryOther;deliveryMessage(T().deliveryOther)}else{deliveryMessage(Number(durationDays)===30?T().deliverySuccess30:T().deliverySuccess)}}
+async function deliverToken(token){if(!token)return;if(!DELIVERY_TOKEN_RE.test(token)){deliveryMessage(T().deliveryInvalid);return}try{const r=await fateFetch('/api/delivery',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token})});let data={};try{data=await r.json()}catch{}if(!r.ok){if(r.status>=500||r.status===429)saveDeliveryRetryToken(token);deliveryMessage(T().deliveryError);return}const key=data&&data.license_key;if(!DELIVERY_KEY_RE.test(key)){deliveryMessage(T().deliveryInvalid);return}clearDeliveryRetryToken();showDeliveredCode(key,data.duration_days)}catch{saveDeliveryRetryToken(token);deliveryMessage(T().deliveryRetry)}}
+
+// ----- Music -----
+let audioCtx=null,master=null,musicOn=false,ambientTimer=null;
+function startMusic(){if(musicOn)return;musicOn=true;$('musicbtn').classList.add('on');if(!audioCtx){audioCtx=new (window.AudioContext||window.webkitAudioContext)();master=audioCtx.createGain();master.gain.value=.16;master.connect(audioCtx.destination)}if(audioCtx.state==='suspended')audioCtx.resume();const chords=[[110,164.81,220],[98,146.83,196],[123.47,185,246.94],[82.41,123.47,164.81]];let step=0;const play=()=>{if(!musicOn)return;const now=audioCtx.currentTime,chord=chords[step++%chords.length];chord.forEach((freq,i)=>{const o=audioCtx.createOscillator(),g=audioCtx.createGain(),f=audioCtx.createBiquadFilter();o.type=i===0?'sine':'triangle';o.frequency.value=freq;f.type='lowpass';f.frequency.value=1200;g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(i===0?.18:.09,now+1.2);g.gain.exponentialRampToValueAtTime(.0001,now+5.6);o.connect(f);f.connect(g);g.connect(master);o.start(now);o.stop(now+5.8)});const bell=audioCtx.createOscillator(),bg=audioCtx.createGain();bell.type='sine';bell.frequency.value=[659.25,783.99,987.77,1174.66][Math.floor(Math.random()*4)];bg.gain.setValueAtTime(.0001,now+.3);bg.gain.exponentialRampToValueAtTime(.12,now+.38);bg.gain.exponentialRampToValueAtTime(.0001,now+1.7);bell.connect(bg);bg.connect(master);bell.start(now+.3);bell.stop(now+1.8)};play();ambientTimer=setInterval(play,4200)}
+function stopMusic(){musicOn=false;$('musicbtn').classList.remove('on');if(ambientTimer){clearInterval(ambientTimer);ambientTimer=null}}
+$('musicbtn').onclick=()=>musicOn?stopMusic():startMusic();
+
+// ----- Device key storage (private key never leaves this browser) -----
+const DB_NAME='fate-device-v1', STORE='keys';
+function openKeyDb(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains(STORE))r.result.createObjectStore(STORE)};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+async function idbGet(k){const db=await openKeyDb();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readonly'),r=tx.objectStore(STORE).get(k);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+async function idbSet(k,v){const db=await openKeyDb();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,'readwrite');tx.objectStore(STORE).put(v,k);tx.oncomplete=()=>resolve();tx.onerror=()=>reject(tx.error)})}
+async function ensureKeyPair(){let privateKey=await idbGet('privateKey'),publicJwk=await idbGet('publicJwk');if(privateKey&&publicJwk)return{privateKey,publicJwk};const pair=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify']);publicJwk=await crypto.subtle.exportKey('jwk',pair.publicKey);const privateJwk=await crypto.subtle.exportKey('jwk',pair.privateKey);privateKey=await crypto.subtle.importKey('jwk',privateJwk,{name:'ECDSA',namedCurve:'P-256'},false,['sign']);await idbSet('privateKey',privateKey);await idbSet('publicJwk',publicJwk);return{privateKey,publicJwk}}
+function bytesToB64url(bytes){let s='';for(const b of new Uint8Array(bytes))s+=String.fromCharCode(b);return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/g,'')}
+async function signText(privateKey,text){const sig=await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},privateKey,new TextEncoder().encode(text));return bytesToB64url(sig)}
+function installId(){let id=localStorage.getItem('fate_install_id');if(!id){id=crypto.randomUUID();localStorage.setItem('fate_install_id',id)}return id}
+async function signedProof(purpose){const deviceId=localStorage.getItem('fate_device_id');const privateKey=await idbGet('privateKey');if(!deviceId||!privateKey)return null;const cr=await fateFetch('/api/auth/challenge',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({device_id:deviceId,purpose})});if(!cr.ok)return null;const c=await cr.json();return{device_id:deviceId,challenge_id:c.challenge_id,signature:await signText(privateKey,c.challenge)}}
+async function refreshStatus(){let payload={};try{const proof=await signedProof('status');if(proof)payload=proof}catch{}const r=await fateFetch('/api/status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!r.ok)throw new Error('status');st=await r.json();render()}
+
+async function activate(){const key=$('key').value.trim();if(!key){$('result').textContent=T().bad;return}try{const kp=await ensureKeyPair();const r=await fateFetch('/api/activate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({license_key:key,install_id:installId(),public_jwk:kp.publicJwk})});const data=await r.json();if(!r.ok){if(data.error==='license_already_bound')$('result').textContent=T().bound;else if(data.error==='key_already_registered')$('result').textContent=T().alreadyRegistered;else if(data.error==='activation_locked')$('result').textContent=T().locked;else if(data.error==='license_expired')$('result').textContent=T().expired;else if(data.error==='bad_key'||data.error==='license_not_found'||data.error==='invalid_license')$('result').textContent=T().bad;else $('result').textContent=T().activationError;return}localStorage.setItem('fate_device_id',data.device_id);deliveryState.licenseKey=null;deliveryState.durationDays=null;$('key').value='';$('keybox').hidden=true;$('deliverybox').hidden=true;$('result').textContent='';await refreshStatus()}catch{$('result').textContent=T().net}}
+
+async function draw(){if(busy)return;const q=$('q').value.trim();if(!q){$('q').focus();$('result').textContent=T().empty;return}if(!musicOn)startMusic();busy=true;render();$('result').textContent=T().judging;try{let payload={question:q};if(st.premium){const proof=await signedProof('draw');if(!proof)throw{userMessage:T().auth};payload={...payload,...proof}}const r=await fateFetch('/api/draw',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const data=await r.json();if(!r.ok){if(data.error==='used_today')throw{userMessage:T().used};throw{userMessage:T().net}}await spinTo(data.reels);showResult(data)}catch(e){$('result').textContent=e?.userMessage||T().net}busy=false;await refreshStatus().catch(()=>render())}
+
+$('go').onclick=draw;$('q').onkeydown=e=>{if(e.key==='Enter')draw()};
+$('keybtn').onclick=()=>{const show=$('keybox').hidden;$('keybox').hidden=!show;if(show)$('key').focus()};
+$('redeem').onclick=activate;
+$('deliverycopy').onclick=async()=>{const key=$('deliverycode').value;if(!key)return;try{await navigator.clipboard.writeText(key)}catch{const input=$('deliverycode');input.focus();input.select();try{document.execCommand('copy')}catch{}}$('deliverymessage').textContent=T().deliveryCopied};
+$('langbtn').onclick=()=>{$('langmenu').hidden=!$('langmenu').hidden};
+$('langmenu').querySelectorAll('button').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;try{localStorage.setItem('fate_lang',lang)}catch{};$('langbtn').textContent=lang==='zh'?'中文':lang==='ja'?'日本語':lang==='ko'?'한국어':'EN';$('langmenu').hidden=true;$('result').textContent='';render()});
+$('langbtn').textContent=lang==='zh'?'中文':lang==='ja'?'日本語':lang==='ko'?'한국어':'EN';
+document.addEventListener('click',e=>{if(!e.target.closest('.langwrap'))$('langmenu').hidden=true});
+render();refreshStatus().catch(()=>render());if(deliveryStartupToken)deliverToken(deliveryStartupToken);
+</script></body></html>

@@ -10,7 +10,7 @@
       loading="eager"></iframe>
   </div>
   <p class="fate-page__action">
-    <a data-fate-open target="_blank" rel="noopener noreferrer">別ウィンドウで開く</a>
+    <a data-fate-open target="_blank" rel="noopener noreferrer">全画面で開く</a>
   </p>
 </div>
 <style>
@@ -80,7 +80,7 @@
     const openLink = document.querySelector('[data-fate-open]');
     if (!frame || !openLink) return;
 
-    const base = 'https://fate-arbiter.siolyjow.workers.dev/';
+    const base = new URL('/fate/runtime/', window.location.origin).href;
     const query = window.location.search;
     const fragment = window.location.hash;
     const target = base + query + fragment;
