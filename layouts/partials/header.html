@@ -1,41 +1,81 @@
-{{- /* theme-toggle is enabled */}}
+{{- /* Theme initialization must survive restricted storage and older Android WebViews. */}}
 {{- if (not site.Params.disableThemeToggle) }}
-{{- /* theme is light */}}
-{{- if (eq site.Params.defaultTheme "light") }}
 <script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    }
+    window.HitopperTheme = (function () {
+        var preferenceKey = "pref-theme";
 
-</script>
-{{- /* theme is dark */}}
-{{- else if (eq site.Params.defaultTheme "dark") }}
-<script>
-    if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    }
+        function getPreference() {
+            try {
+                return window.localStorage.getItem(preferenceKey);
+            } catch (error) {
+                return null;
+            }
+        }
 
-</script>
-{{- else }}
-{{- /* theme is auto */}}
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
+        function setPreference(value) {
+            try {
+                window.localStorage.setItem(preferenceKey, value);
+            } catch (error) {
+                // The visual toggle still works when storage is blocked.
+            }
+        }
 
+        function prefersDark() {
+            try {
+                return typeof window.matchMedia === "function" &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches;
+            } catch (error) {
+                return false;
+            }
+        }
+
+        function apply(value, defaultTheme) {
+            var dark;
+            if (value === "dark") {
+                dark = true;
+            } else if (value === "light") {
+                dark = false;
+            } else if (defaultTheme === "dark") {
+                dark = true;
+            } else if (defaultTheme === "light") {
+                dark = false;
+            } else {
+                dark = prefersDark();
+            }
+            document.body.classList.toggle("dark", dark);
+            document.documentElement.style.colorScheme = dark ? "dark" : "light";
+            var colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+            if (colorSchemeMeta) colorSchemeMeta.setAttribute("content", dark ? "dark" : "light");
+            var toggle = document.getElementById("theme-toggle");
+            if (toggle) {
+                toggle.setAttribute("aria-pressed", dark ? "true" : "false");
+            }
+            return dark;
+        }
+
+        return {
+            getPreference: getPreference,
+            setPreference: setPreference,
+            prefersDark: prefersDark,
+            apply: apply
+        };
+    }());
+
+    window.HitopperTheme.apply(
+        window.HitopperTheme.getPreference(),
+        "{{ site.Params.defaultTheme | default "auto" }}"
+    );
 </script>
-{{- end }}
-{{- /* theme-toggle is disabled and theme is auto */}}
 {{- else if (and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme "dark"))}}
 <script>
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
+    (function () {
+        var dark = false;
+        try {
+            dark = typeof window.matchMedia === "function" &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches;
+        } catch (error) {}
+        document.body.classList.toggle("dark", dark);
+    }());
 </script>
 {{- end }}
 

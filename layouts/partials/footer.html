@@ -28,24 +28,42 @@
 {{- partial "extend_footer.html" . }}
 
 <script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    (function () {
+        var menu = document.getElementById('menu');
+        var storage = {
+            get: function (key) {
+                try { return window.localStorage.getItem(key); } catch (error) { return null; }
+            },
+            set: function (key, value) {
+                try { window.localStorage.setItem(key, value); } catch (error) {}
+            }
+        };
+        if (menu) {
+            var savedPosition = storage.get("menu-scroll-position");
+            if (savedPosition !== null) menu.scrollLeft = savedPosition;
+            menu.onscroll = function () {
+                storage.set("menu-scroll-position", menu.scrollLeft);
+            };
         }
-    }
+    }());
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+            var reducedMotion = false;
+            try {
+                reducedMotion = typeof window.matchMedia === "function" &&
+                    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            } catch (error) {}
+            var target = document.querySelector(`[id='${decodeURIComponent(id)}']`);
+            if (!target) return;
+            if (!reducedMotion) {
+                target.scrollIntoView({
                     behavior: "smooth"
                 });
             } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+                target.scrollIntoView();
             }
             if (id === "top") {
                 history.replaceState(null, null, " ");
@@ -75,15 +93,18 @@
 
 {{- if (not site.Params.disableThemeToggle) }}
 <script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
+    (function () {
+        var toggle = document.getElementById("theme-toggle");
+        if (!toggle) return;
+        var theme = window.HitopperTheme;
+        if (!theme) return;
+        toggle.addEventListener("click", function () {
+            var next = document.body.classList.contains("dark") ? "light" : "dark";
+            theme.apply(next, "auto");
+            theme.setPreference(next);
+        });
+        theme.apply(document.body.classList.contains("dark") ? "dark" : "light", "auto");
+    }());
 
 </script>
 {{- end }}
