@@ -127,6 +127,7 @@
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
             {{- $page_url:= $currentPage.Permalink | absLangURL }}
             {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}
+            {{- if and (ne .Name "お酒ギフト") (ne .Name "お香ギフト") }}
             <li>
                 <a href="{{ .URL | relLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
                 {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
@@ -145,6 +146,7 @@
                     {{- end }}
                 </a>
             </li>
+            {{- end }}
             {{- end }}
         </ul>
     </nav>

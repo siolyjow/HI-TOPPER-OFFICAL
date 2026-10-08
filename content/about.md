@@ -2,27 +2,20 @@
 date = '2025-10-07T13:50:20+09:00'
 draft = false
 title = 'About Us'
+layout = 'about'
 +++
 
+{{< about-logo >}}
 
+HI-TOPPERには、ユニークな人々と面白いアイデアが集まっています。
 
-HI-TOPPERは、人生の経験を積んだ中年たちが集まる場所です。
+私たちは、趣味や好きなことを楽しみながら、心豊かな人生を送ることを大切にしています。
 
+私たちの目標は、世の中のあらゆる面白いものやことを紹介することです。
 
+人生は一度きり。だからこそ、楽しく生きよう。
 
-皆、趣味や興味を育み、精神的な世界を豊かにすることに熱心です。
+公式サイト：[https://www.hitopper.top/](https://www.hitopper.top/)
 
-
-
-私たちの目標は、面白いと思ったものは何でもおすすめすることです。
-
-
-
-人生は一度きり、だからこそ楽しく生きよう。
-
-
-
-公式サイト：https://www.hitopper.top/。
-
-メールアドレス：siolyjow@gmail.com
+メール：[zhao@hitopper.top](mailto:zhao@hitopper.top)
 

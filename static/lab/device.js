@@ -12,5 +12,7 @@
  async function session(){let p=await proof();if(!p)return null;let r=await req('/lab/session',p);if(!r.ok)return null;return await r.json()}
  async function activate(key){const pair=await keypair();const r=await req('/activate',{license_key:key,install_id:installId(),public_jwk:pair.publicJwk});const d=await r.json();if(r.ok)localStorage.setItem('fate_device_id',d.device_id);return {ok:r.ok,...d}}
  async function delivery(token){const r=await req('/delivery',{token});return {ok:r.ok,...await r.json()}}
- window.LabAuth=Object.freeze({session,activate,delivery,req});
+ async function trial(slug){const r=await req('/lab/trial/session',{game:slug});let d={};try{d=await r.json()}catch{}return {ok:r.ok,status:r.status,...d}}
+ async function trialStatus(slug){const r=await req('/lab/trial/status',{game:slug});let d={};try{d=await r.json()}catch{}return {ok:r.ok,status:r.status,...d}}
+ window.LabAuth=Object.freeze({session,activate,delivery,trial,trialStatus,req});
 })();
