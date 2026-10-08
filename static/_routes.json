@@ -1,5 +1,14 @@
 {
   "version": 1,
-  "include": ["/fate/api/*"],
+  "include": [
+    "/fate/api/*",
+    "/lab/api/*",
+    "/lab/fate/runtime/*",
+    "/lab/chikoku/runtime/*",
+    "/lab/kacho/runtime/*",
+    "/lab/ni-gyu/runtime/*",
+    "/lab/destroyer/runtime/*",
+    "/fate/runtime/*"
+  ],
   "exclude": []
 }

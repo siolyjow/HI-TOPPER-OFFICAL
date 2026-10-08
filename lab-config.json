@@ -1,0 +1,40 @@
+{
+  "brand": "成功研究所",
+  "service": "ゲーム放題",
+  "home": "/lab/",
+  "purchase_url": "https://j.hitopper.top/?fate-buy=574",
+  "price_jpy": 100,
+  "duration_days": 30,
+  "games": [
+    {
+      "slug": "fate",
+      "name": "運命の裁定者",
+      "description": "迷いをYES・NOの三つで裁定。運命の答えはあなたの手に。",
+      "cover": "/lab/covers/fate.webp"
+    },
+    {
+      "slug": "chikoku",
+      "name": "遅刻理由生成器",
+      "description": "遅刻した理由を、想像力たっぷりに生成。",
+      "cover": "/lab/covers/chikoku.webp"
+    },
+    {
+      "slug": "kacho",
+      "name": "課長ハゲ算",
+      "description": "課長の髪に運命を託す、不条理な占い。",
+      "cover": "/lab/covers/kacho.png"
+    },
+    {
+      "slug": "ni-gyu",
+      "name": "私って、すごい？",
+      "description": "今日の頑張りを自分で承認する、ちょっとしたご褒美ゲーム。",
+      "cover": "/lab/covers/ni-gyu.webp"
+    },
+    {
+      "slug": "destroyer",
+      "name": "バカ発言破壊機",
+      "description": "言われたくない言葉を雷で一気に粉砕。",
+      "cover": "/lab/covers/destroyer.webp"
+    }
+  ]
+}

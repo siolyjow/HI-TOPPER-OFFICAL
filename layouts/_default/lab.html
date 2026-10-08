@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="lab-zone" id="lab-zone">
+ <header class="lab-heading"><span class="lab-kicker">HI-TOPPER DIGITAL LAB</span><h1>成功研究所</h1><p class="lab-sub">ゲーム放題</p><p>何の役に立つかは、やってみてから。5つのゲームで、迷いも退屈も遊びに変える。</p></header>
+ <div class="lab-pass"><div><h2>5ゲーム共通パス</h2><p>一度のお支払い <strong>100円</strong>　初回認証から<strong>30日間</strong>　回数無制限</p><p>自動更新なし ／ 1端末に認証 ／ 期限後は再購入</p><p id="lab-status" aria-live="polite">認証状態を確認しています…</p><p id="lab-active" hidden>認証済みの端末なら、下の各ゲームにすぐ入れます。</p></div>
+ <a class="lab-buy" href="{{ site.Data.lab.purchase_url }}" rel="noopener noreferrer">ゲーム放題を購入（100円）</a></div>
+ <div class="lab-activation" id="lab-activation"><label for="lab-code">購入済みの方：12文字の認証コード</label><div class="lab-code-row"><input id="lab-code" name="code" maxlength="12" autocomplete="off" placeholder="認証コード" aria-describedby="lab-notice"><button id="lab-activate" type="button">端末を認証する</button></div><p id="lab-notice" role="status" aria-live="polite"></p></div>
+ <div class="lab-cards">
+ {{ range site.Data.lab.games }}<article class="lab-card"><img src="{{ .cover }}" alt="{{ .name }}" width="480" height="300" loading="lazy"><div class="lab-card-content"><h2>{{ .name }}</h2><p>{{ .description }}</p><a data-lab-play href="/lab/{{ .slug }}/">ゲームに入る</a></div></article>{{ end }}
+ </div>
+</section>
+<link rel="stylesheet" href="/lab/lab.css"><script src="/lab/device.js" defer></script><script src="/lab/home.js" defer></script>
+{{ end }}

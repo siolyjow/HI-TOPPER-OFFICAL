@@ -46,9 +46,9 @@ enableRobotsTXT = true
  [[menu.main]]
     name = "募集"
     url = "/recruit/"
-    weight = 6
+    weight = 7
 
 [[menu.main]]
-  name = "運命の裁定者"
-  url = "/fate/"
-  weight = 7
+  name = "成功研究所"
+  url = "/lab/"
+  weight = 6
