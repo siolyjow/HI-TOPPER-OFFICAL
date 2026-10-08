@@ -1,6 +1,7 @@
 {
   "version": 1,
   "include": [
+    "/stats/*",
     "/fate/api/*",
     "/lab/api/*",
     "/lab/fate/runtime/*",

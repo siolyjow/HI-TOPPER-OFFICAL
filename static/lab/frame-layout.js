@@ -57,9 +57,6 @@
         box-sizing: border-box !important;
       }
       ${gameOverrides}
-      a[href="/lab/"][target="_top"] {
-        position: absolute !important;
-      }
     `;
   }
 
