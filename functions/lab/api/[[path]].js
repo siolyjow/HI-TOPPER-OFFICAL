@@ -1,6 +1,7 @@
 const GAMES=new Set(['fate','chikoku','kacho','ni-gyu','destroyer']);
 const PUBLIC = new Map([
-  ['/activate','POST'], ['/auth/challenge','POST'], ['/status','POST'],
+  ['/activate','POST'], ['/activate/batch','POST'], ['/activation/challenge','POST'],
+  ['/auth/challenge','POST'], ['/status','POST'],
   ['/draw','POST'], ['/delivery','POST'], ['/lab/session','POST'],
   ['/lab/trial/session','POST'], ['/lab/trial/status','POST'], ['/lab/trial/play','POST'], ['/health','GET']
 ]);

@@ -7,12 +7,45 @@
  async function write(key,value){const d=await db();return new Promise((ok,fail)=>{const tx=d.transaction(STORE,'readwrite');tx.objectStore(STORE).put(value,key);tx.oncomplete=ok;tx.onerror=()=>fail(tx.error)})}
  async function keypair(){let privateKey=await read('privateKey'),publicJwk=await read('publicJwk');if(privateKey&&publicJwk)return {privateKey,publicJwk};const pair=await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify']);publicJwk=await crypto.subtle.exportKey('jwk',pair.publicKey);privateKey=await crypto.subtle.importKey('jwk',await crypto.subtle.exportKey('jwk',pair.privateKey),{name:'ECDSA',namedCurve:'P-256'},false,['sign']);await write('privateKey',privateKey);await write('publicJwk',publicJwk);return {privateKey,publicJwk}}
  function installId(){let x=localStorage.getItem('fate_install_id');if(!x){x=crypto.randomUUID();localStorage.setItem('fate_install_id',x)}return x}
- function b64(b){let str='';for(let x of new Uint8Array(b))str+=String.fromCharCode(x);return btoa(str).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/g,'')}
+ function b64(b){let str='';for(let x of new Uint8Array(b))str+=String.fromCharCode(x);return btoa(str).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}
+ async function responseData(r){let d={};try{d=await r.json()}catch{}return {ok:r.ok,status:r.status,...d}}
  async function proof(){let id=localStorage.getItem('fate_device_id'),pk=await read('privateKey');if(!id||!pk)return null;const r=await req('/auth/challenge',{device_id:id,purpose:'status'});if(!r.ok)return null;const c=await r.json();return {device_id:id,challenge_id:c.challenge_id,signature:b64(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},pk,new TextEncoder().encode(c.challenge)))}}
  async function session(){let p=await proof();if(!p)return null;let r=await req('/lab/session',p);if(!r.ok)return null;return await r.json()}
- async function activate(key){const pair=await keypair();const r=await req('/activate',{license_key:key,install_id:installId(),public_jwk:pair.publicJwk});const d=await r.json();if(r.ok)localStorage.setItem('fate_device_id',d.device_id);return {ok:r.ok,...d}}
+ async function activationProof(pair){
+  let r;
+   try{r=await req('/activation/challenge',{public_jwk:pair.publicJwk})}catch{return {ok:false,error:'network_error',network_error:true,uncertain:true}}
+  const d=await responseData(r);
+  if(r.ok){
+   if(typeof d.challenge_id!=='string'||typeof d.challenge!=='string')return {ok:false,error:'invalid_challenge'};
+   try{return {ok:true,challenge_id:d.challenge_id,signature:b64(await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},pair.privateKey,new TextEncoder().encode(d.challenge)))}}catch{return {ok:false,error:'signature_failed'}}
+  }
+  // Only a missing public key permits a first-device request without proof.
+  if(r.status===404&&d.error==='device_not_found')return {ok:true,new_device:true};
+  return {ok:false,error:d.error||'challenge_failed',status:r.status,uncertain:r.status>=500}
+ }
+ async function activateBatch(keys){
+  const list=Array.isArray(keys)?keys.slice():[keys];
+  let pair;
+  try{pair=await keypair()}catch{return {ok:false,error:'device_storage_unavailable'}}
+  const challenge=await activationProof(pair);
+  if(!challenge.ok)return challenge;
+  const body={license_keys:list,install_id:installId(),public_jwk:pair.publicJwk};
+  if(!challenge.new_device){body.challenge_id=challenge.challenge_id;body.signature=challenge.signature}
+  let r;
+  try{r=await req('/activate/batch',body)}catch{return {ok:false,error:'network_error',network_error:true,uncertain:true}}
+  const d=await responseData(r);
+  if(r.ok&&d.device_id)localStorage.setItem('fate_device_id',d.device_id);
+  if(!r.ok&&(!d.error||d.error==='network_error'||d.error==='upstream_unavailable'||r.status>=500))return {...d,ok:false,status:r.status,network_error:true,uncertain:true};
+  return d;
+ }
+ async function activate(key){return activateBatch([key])}
  async function delivery(token){const r=await req('/delivery',{token});return {ok:r.ok,...await r.json()}}
  async function trial(slug){const r=await req('/lab/trial/session',{game:slug});let d={};try{d=await r.json()}catch{}return {ok:r.ok,status:r.status,...d}}
  async function trialStatus(slug){const r=await req('/lab/trial/status',{game:slug});let d={};try{d=await r.json()}catch{}return {ok:r.ok,status:r.status,...d}}
- window.LabAuth=Object.freeze({session,activate,delivery,trial,trialStatus,req});
+ function fateText(){try{return typeof window.T==='function'?window.T():{}}catch{return {}}}
+ function fateActivationError(d){const t=fateText();if(d?.uncertain||d?.network_error||d?.error==='network_error')return t.net||'通信エラーです。';const labels={bad_key:'bad',license_expired:'expired',license_revoked:'bad',license_already_bound:'bound',key_already_registered:'alreadyRegistered',activation_locked:'locked',renewal_proof_required:'auth',bad_challenge:'auth',expired_challenge:'auth',bad_signature:'auth',challenge_reused:'auth'};return t[labels[d?.error]]||t.activationError||'認証に失敗しました。'}
+ function fateRuntimeDom(){const path=String(location?.pathname||'').toLowerCase();const key=document.getElementById('key'),redeem=document.getElementById('redeem'),go=document.getElementById('go');if(!key||!redeem||!go||!path.includes('fate'))return null;return {key,redeem,go}}
+ function bindFateActivation(){const dom=fateRuntimeDom();if(!dom)return;if(!dom.redeem.dataset)dom.redeem.dataset={};if(dom.redeem.dataset.labBatchAdapter==='true')return;dom.redeem.dataset.labBatchAdapter='true';dom.redeem.addEventListener('click',async event=>{event.preventDefault();event.stopImmediatePropagation();if(dom.redeem.dataset.labBatchBusy==='true')return;const code=String(dom.key.value||'').trim();if(!/^[A-Za-z0-9]{12}$/.test(code)){const t=fateText();const result=document.getElementById('result');if(result)result.textContent=t.bad||'認証コードを確認してください。';return}dom.redeem.dataset.labBatchBusy='true';try{const d=await activateBatch([code]),result=document.getElementById('result');if(!d?.ok){if(result)result.textContent=fateActivationError(d);return}dom.key.value='';if(typeof deliveryState!=='undefined'){deliveryState.licenseKey=null;deliveryState.durationDays=null}const keybox=document.getElementById('keybox');if(keybox)keybox.hidden=true;const deliverybox=document.getElementById('deliverybox');if(deliverybox)deliverybox.hidden=true;try{if(typeof window.refreshStatus==='function')await window.refreshStatus()}catch{}if(result)result.textContent=''}catch{const result=document.getElementById('result'),t=fateText();if(result)result.textContent=t.net||'通信エラーです。'}finally{dom.redeem.dataset.labBatchBusy='false'}},{capture:true})}
+ window.LabAuth=Object.freeze({session,activate,activateBatch,delivery,trial,trialStatus,req});
+ if(typeof document!=='undefined'){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bindFateActivation,{once:true});else bindFateActivation()}
 })();
