@@ -5,7 +5,11 @@ theme = "PaperMod"
 disableHugoGeneratorInject = true
 enableRobotsTXT = true
 
+[pagination]
+  pagerSize = 20
+
 [params]
+  mainSections = ["posts", "gift", "incense"]
   # Keep production pages indexable even if the deployment environment does
   # not set Hugo's production flag explicitly.
   env = "production"
