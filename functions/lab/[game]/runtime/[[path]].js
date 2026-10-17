@@ -11,7 +11,7 @@ export async function onRequest({request,env}) {
   const target=new URL('/api/lab/assets/'+match[1]+'/'+resource,'https://fate-backend.internal');
   const headers=new Headers({'x-fate-proxy-auth':env.FATE_PROXY_SECRET});
   const trialCookie=match[1].replace(/-/g,'_');
-  const cookie=(request.headers.get('Cookie')||'').split(';').map(v=>v.trim()).filter(v=>{const name=v.slice(0,v.indexOf('='));return name==='fid'||name==='lab_session'||name===`lab_trial_${trialCookie}`}).join('; ');
+  const cookie=(request.headers.get('Cookie')||'').split(';').map(v=>v.trim()).filter(v=>{const name=v.slice(0,v.indexOf('='));return name==='fid'||name==='lab_session'||name==='lab_account'||name===`lab_trial_${trialCookie}`}).join('; ');
   if(cookie) headers.set('Cookie',cookie);
   try {
     const response=await env.FATE_BACKEND.fetch(new Request(target,{method:request.method,headers,redirect:'manual'}));

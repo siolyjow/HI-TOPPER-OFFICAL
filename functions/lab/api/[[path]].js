@@ -4,6 +4,9 @@ const PUBLIC = new Map([
   ['/auth/challenge','POST'], ['/status','POST'],
   ['/draw','POST'], ['/delivery','POST'], ['/lab/session','POST'],
   ['/lab/trial/session','POST'], ['/lab/trial/status','POST'], ['/lab/trial/play','POST'], ['/health','GET']
+  ,['/account/login','POST'], ['/account/verify','POST'], ['/account/logout','POST'],
+  ['/account/redeem','POST'], ['/account/migrate','POST'], ['/account/session','POST'],
+  ['/promo/info','POST'], ['/promo/claim','POST']
 ]);
 export async function onRequest({request,env}) {
   const incoming=new URL(request.url);
@@ -20,7 +23,7 @@ export async function onRequest({request,env}) {
   const url=new URL('/api'+path,'https://fate-backend.internal');url.search=incoming.search;
   try {
     const upstream=await env.FATE_BACKEND.fetch(new Request(url,{
-      method,headers,body:method==='GET'?undefined:request.body,redirect:'manual',duplex:'half'
+      method,headers,body:method==='GET'?undefined:request.body,redirect:'manual',duplex:method==='GET'?undefined:'half'
     }));
     const responseHeaders=new Headers({'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});
     appendAllowedSetCookies(responseHeaders,upstream.headers);
@@ -28,7 +31,7 @@ export async function onRequest({request,env}) {
   }catch{return error('upstream_unavailable',502)}
 }
 function error(error,status){return Response.json({error},{status,headers:{'Cache-Control':'no-store'}})}
-function allowedCookieName(name){return name==='fid'||name==='lab_session'||/^lab_trial_(?:fate|chikoku|kacho|ni_gyu|destroyer)$/.test(name)}
+function allowedCookieName(name){return name==='fid'||name==='lab_session'||name==='lab_account'||/^lab_trial_(?:fate|chikoku|kacho|ni_gyu|destroyer)$/.test(name)}
 function forwardCookieHeader(request){return (request.headers.get('Cookie')||'').split(';').map(v=>v.trim()).filter(v=>allowedCookieName(v.slice(0,v.indexOf('=')))).join('; ')}
-function setCookieValues(headers){if(typeof headers.getSetCookie==='function'){const values=headers.getSetCookie();if(Array.isArray(values))return values}const value=headers.get('Set-Cookie');return value?value.split(/,(?=\s*(?:fid|lab_session|lab_trial_(?:fate|chikoku|kacho|ni_gyu|destroyer))=)/i):[]}
-function appendAllowedSetCookies(target,source){for(const cookie of setCookieValues(source)){const match=/^\s*([^=;\s]+)=/.exec(cookie);if(match&&allowedCookieName(match[1]))target.append('Set-Cookie',cookie.trim())}}
+function setCookieValues(headers){if(typeof headers.getSetCookie==='function'){const values=headers.getSetCookie();if(Array.isArray(values))return values}const value=headers.get('Set-Cookie');return value?value.split(/,(?=\s*(?:fid|lab_session|lab_account|lab_trial_(?:fate|chikoku|kacho|ni_gyu|destroyer))=)/i):[]}
+function appendAllowedSetCookies(target,source){for(const raw of setCookieValues(source)){let cookie=raw.trim(),match=/^\s*([^=;\s]+)=/.exec(cookie);if(!match||!allowedCookieName(match[1]))continue;if(match[1]==='lab_account'){cookie=/Path=/i.test(cookie)?cookie.replace(/Path=\/[^;]*/i,'Path=/lab/'):cookie+'; Path=/lab/'}target.append('Set-Cookie',cookie)}}
